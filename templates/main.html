@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinabro</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="https://cdn.socket.io/socket.io-3.0.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  
+
+</head>
+
+<body>
+  <header>
+    <h1>Sinabro</h1>
+  </header>
+
+  <div class="chat_window">
+    <div class="top_menu">
+      <div class="buttons">
+        <div class="button close"></div>
+        <div class="button minimize"></div>
+        <div class="button maximize"></div>
+      </div>
+    </div>
+
+    <ul class="messages"></ul>
+    <div class="bottom_wrapper clearfix">
+      <div class="message_input_wrapper">
+        <input type="text" name="message_input" class = "message_input" placeholder="문자를 입력하세요..." />
+      </div>
+      <button class="send_message">
+        <div class="icon"></div>
+        <div class="text">전송</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="message_template">
+    <li class="message">
+      <div class="message_content">
+        <div class="avatar"></div>
+        <div class="text_wrapper">
+          <div class="text"></div>
+        </div>
+
+        <div class="img">
+          <img src="static/like.png" alt="웃는 아이콘" class="like-img" data-option="like">
+          <img src="static/dislike.png" alt="우는 아이콘" class="dislike-img" data-option="dislike">
+        </div>
+      </div>
+    </li>
+  </div>
+
+  <!-- '감사합니다' 팝업 -->
+  <div id="thanks-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h3>감사합니다!🥰💕</h3>
+    </div>
+  </div>
+
+  <!-- '이유를 적어주세요' 팝업 -->
+  <div id="dislike-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h4>싫어요를 누르신 이유를 알려주세요🥺</h4>
+      <form id="dislike-form">
+
+        <input type="radio" id="reason1" name="dislike-reason" value="reason1">
+        <label for="reason1" class="like">필터링이 제대로 되지 않아서</label><br>
+
+        <input type="radio" id="reason2" name="dislike-reason" value="reason2">
+        <label for="reason2" class="dislike">필터링 된 문장이 마음에 들지 않아서</label><br>
+
+        <label for="other-reason">기타</label>
+        <input type="text" id="other-reason" name="other-reason" placeholder="기타 등..">
+
+
+        <input type="submit" value="제출">
+      </form>
+    </div>
+  </div>
+  
+  <script src="static/chatbot.js"></script>
+  <script src="static/popup.js"></script>
+
+
+</body>
+
+</html>

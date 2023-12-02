@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+
+    <h1>관리자 페이지</h1>
+    
+    <article class="csvbtn">
+        <div>
+            <a href="" id="csvdownload">csv 파일로 저장</a>
+        </div>
+    </article>
+
+    <table id="csvtable">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>성별</th>
+                <th>나이</th>
+                <th>싫어요를 누른 이유</th>
+                <th>원본 문장</th>
+                <th>순화된 문장</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.indexnum }}</td>
+                <td>{{ row.gender }}</td>
+                <td>{{ row.age }}</td>
+                <td>{{ row.reason }}</td>
+                <td>{{ row.originalSentence }}</td>
+                <td>{{ row.translateSentence }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    </table>
+
+    <script src="assets/js/admin.js"></script>
+
+</body>
+</html>
